@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "TPLA\\": "Classes"
+    }
+  },
+  "require": {
+    "ext-json": "*",
+    "ext-curl": "*",
+    "kub-at/php-simple-html-dom-parser": ">=1.9",
+    "ext-mysql_xdevapi": "*"
+  }
+}

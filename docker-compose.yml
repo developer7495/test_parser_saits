@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  nginx:
+    build: images/nginx-proxy-image-local
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./etc/nginx:/etc/nginx/conf.d
+      - ./www:/usr/share/nginx/html
+      - ./logs:/usr/share/nginx/log
+    depends_on:
+      - php
+    networks:
+      test-network:
+  php:
+    build: ./images/php
+    volumes:
+      - ./www:/usr/share/nginx/html
+      - ./etc/php/php.ini:/usr/local/etc/php/php.ini:ro
+    environment:
+      XDEBUG_CONFIG: "remote_host=172.16.0.1 remote_enable=1 remote_autostart=off  remote_port=9000"
+      PHP_IDE_CONFIG: "serverName=test_server"
+    networks:
+      test-network:
+
+networks:
+  test-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/28

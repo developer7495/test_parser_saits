@@ -1,0 +1,40 @@
+<?php
+$title = 'Show books data by ISBN (amazon.com and bookdepository.com)';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title><?= $title; ?></title>
+	<script src="ajax_script.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+	<h1><?= $title; ?></h1>
+	<div class="input-group mb-3">
+		<input id="input-search" type="text" class="form-control" placeholder="Book ISBN" aria-label="Book ISBN" aria-describedby="btn-search">
+		<div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="button" id="btn-search">Search</button>
+		</div>
+	</div>
+	<div class="row d-none" id="result-general">
+		<div class="col-6">
+			<h4>From amazon.com </h4>
+			<div id="result-amazon"></div>
+		</div>
+		<div class="col-6">
+			<h4>From bookdepository.com </h4>
+			<div id="result-bookdepository"></div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+
+
