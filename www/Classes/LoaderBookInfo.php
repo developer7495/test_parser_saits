@@ -98,7 +98,6 @@ class LoaderBookInfo
 	public function grabFromAmazon(string $isbn){
 		$url = "https://www.amazon.com/s?k={$isbn}&i=stripbooks-intl-ship&ref=nb_sb_noss";
 		try{
-			$tmp = file_get_contents($url);
 			return file_get_contents($url);
 			
 		}catch(Exception $e){
