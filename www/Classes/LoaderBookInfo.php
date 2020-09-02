@@ -106,8 +106,8 @@ class LoaderBookInfo
 	}
 	
 	public function grabFromBookdepository(string $isbn){
-		$url = "https://www.bookdepository.com/suggestions?searchTerm={$isbn}&search=Find+book";
-	
+		$url = "https://www.bookdepository.com/search?searchTerm={$isbn}&search=Find+book";
+		
 		try{
 			return file_get_contents($url);
 			
